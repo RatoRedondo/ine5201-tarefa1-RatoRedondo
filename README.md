@@ -19,9 +19,18 @@ superior. Vence quem formar quatro fichas consecutivas na horizontal, vertical
 ou diagonal. A coluna cheia é rejeitada e o botão **Reiniciar Jogo** começa uma
 nova partida.
 
+## Testes
+
+As regras principais podem ser verificadas com:
+
+```bash
+python -m unittest test_connect_four.py
+```
+
 ## Organização
 
 - `connect_four.py`: regras do jogo e interface gráfica em `tkinter`.
+- `test_connect_four.py`: testes das regras de inserção, vitória e empate.
 
 ## Uso do GitHub Copilot
 
