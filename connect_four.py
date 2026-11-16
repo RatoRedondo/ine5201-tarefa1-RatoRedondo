@@ -156,6 +156,7 @@ class ConnectFour:
             return
 
         self.desenhar_tabuleiro()
+        self.atualizar_botoes_coluna()
         if verificar_vitoria(self.tabuleiro, self.jogador_atual):
             nome = f"Jogador {self.jogador_atual}"
             self.status.set(f"{nome} venceu!")
@@ -174,6 +175,11 @@ class ConnectFour:
     def desativar_colunas(self):
         for botao in self.botoes_coluna:
             botao.configure(state=tk.DISABLED)
+
+    def atualizar_botoes_coluna(self):
+        for coluna, botao in enumerate(self.botoes_coluna):
+            cheia = self.tabuleiro[0][coluna] != VAZIO
+            botao.configure(state=tk.DISABLED if cheia else tk.NORMAL)
 
     def reiniciar(self):
         self.tabuleiro = criar_tabuleiro()
